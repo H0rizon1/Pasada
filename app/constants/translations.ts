@@ -1,0 +1,28 @@
+export const translations = {
+    en: {
+        morning: "Good morning!",
+        afternoon: "Good afternoon!",
+        evening: "Good evening!",
+        app: "Your Smart Way Through the City",
+        search: "Where are you going?",
+        quick_actions: "Quick Actions",
+        recents: "Recent Trips",
+        plan: "Plan Trip",
+        routes: "Routes",
+        near_me: "Near Me",
+        compare: "Compare",
+    },
+    fil: {
+        morning: "Magandang umaga!",
+        afternoon: "Magandang hapon!",
+        evening: "Magandang gabi!",
+        app: "Your Smart Way Through the City",
+        search: "Saan ka pupunta?",
+        quick_actions: "uick Action",
+        recents: "Nakaraang Biyahe",
+        plan: "Mag-Plano",
+        routes: "Mga Ruta",
+        near_me: "Malapit sa Akin",
+        compare: "Ikumpara",
+    },
+};
