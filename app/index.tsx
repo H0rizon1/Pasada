@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { useLanguage } from './constants/langcontext';
+import { useLanguage } from '../constants/langcontext';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
@@ -11,6 +11,7 @@ export default function HomeScreen() {
     if (hour < 18) return t.afternoon;
     return t.evening;
   };
+
 
   return (
     <ScrollView style={styles.container}>

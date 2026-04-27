@@ -18,7 +18,7 @@ export const translations = {
         evening: "Magandang gabi!",
         app: "Your Smart Way Through the City",
         search: "Saan ka pupunta?",
-        quick_actions: "uick Action",
+        quick_actions: "Quick Action",
         recents: "Nakaraang Biyahe",
         plan: "Mag-Plano",
         routes: "Mga Ruta",
