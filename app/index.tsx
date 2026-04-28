@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { useLanguage } from '../constants/langcontext';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 export default function HomeScreen() {
   const { t, language, toggleLanguage } = useLanguage();
@@ -46,11 +47,13 @@ export default function HomeScreen() {
       {/* Quick Actions */}
       <Text style={styles.sectionTitle}>{t.quick_actions}</Text>
       <View style={styles.quickActions}>
-        <TouchableOpacity style={styles.actionCard}>
+        <TouchableOpacity style={styles.actionCard}
+          onPress={() => router.push('/planner')}>
           <Ionicons name="map" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.plan}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionCard}>
+        <TouchableOpacity style={styles.actionCard}
+          onPress={() => router.push('/routes')}>
           <Ionicons name="bus" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.routes}</Text>
         </TouchableOpacity>
