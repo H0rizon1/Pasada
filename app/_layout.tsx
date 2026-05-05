@@ -59,6 +59,15 @@ export default function Layout() {
             ),
           }}
         />
+        <Tabs.Screen
+          name="compare"
+          options={{
+            title: "Compare",
+            tabBarIcon: ({ color }) => (
+              <Ionicons name="cash" size={22} color={color} />
+            ),
+          }}
+        />
       </Tabs>
     </LanguageProvider>
   );
