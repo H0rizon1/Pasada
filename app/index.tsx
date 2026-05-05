@@ -1,7 +1,14 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { useLanguage } from '../constants/langcontext';
-import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useLanguage } from "../constants/langcontext";
 
 export default function HomeScreen() {
   const { t, language, toggleLanguage } = useLanguage();
@@ -13,10 +20,8 @@ export default function HomeScreen() {
     return t.evening;
   };
 
-
   return (
     <ScrollView style={styles.container}>
-
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
@@ -24,7 +29,7 @@ export default function HomeScreen() {
           {/* Language Toggle */}
           <TouchableOpacity style={styles.langToggle} onPress={toggleLanguage}>
             <Text style={styles.langToggleText}>
-              {language === 'en' ? '🇵🇭 FIL' : '🇬🇧 EN'}
+              {language === "en" ? "🇵🇭 FIL" : "🇬🇧 EN"}
             </Text>
           </TouchableOpacity>
         </View>
@@ -47,13 +52,17 @@ export default function HomeScreen() {
       {/* Quick Actions */}
       <Text style={styles.sectionTitle}>{t.quick_actions}</Text>
       <View style={styles.quickActions}>
-        <TouchableOpacity style={styles.actionCard}
-          onPress={() => router.push('/planner')}>
+        <TouchableOpacity
+          style={styles.actionCard}
+          onPress={() => router.push("/planner")}
+        >
           <Ionicons name="map" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.plan}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionCard}
-          onPress={() => router.push('/routes')}>
+        <TouchableOpacity
+          style={styles.actionCard}
+          onPress={() => router.push("/routes")}
+        >
           <Ionicons name="bus" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.routes}</Text>
         </TouchableOpacity>
@@ -61,7 +70,10 @@ export default function HomeScreen() {
           <Ionicons name="location" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.near_me}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionCard}>
+        <TouchableOpacity
+          style={styles.actionCard}
+          onPress={() => router.push("/compare")}
+        >
           <Ionicons name="cash" size={28} color="#e94560" />
           <Text style={styles.actionText}>{t.compare}</Text>
         </TouchableOpacity>
@@ -77,7 +89,6 @@ export default function HomeScreen() {
         <Text style={styles.recentRoute}>Taguig → Manila</Text>
         <Text style={styles.recentDetails}>E-trike → LRT-1 · ₱28</Text>
       </View>
-
     </ScrollView>
   );
 }
@@ -85,114 +96,114 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1a1a2e',
+    backgroundColor: "#1a1a2e",
   },
   header: {
     padding: 24,
     paddingTop: 30,
   },
   headerTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 4,
   },
   greeting: {
     fontSize: 14,
-    color: '#888',
+    color: "#888",
   },
   langToggle: {
-    backgroundColor: '#16213e',
+    backgroundColor: "#16213e",
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: '#e94560',
+    borderColor: "#e94560",
   },
   langToggleText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   title: {
     fontSize: 42,
-    fontWeight: 'bold',
-    color: '#e94560',
+    fontWeight: "bold",
+    color: "#e94560",
   },
   subtitle: {
     fontSize: 14,
-    color: '#aaa',
+    color: "#aaa",
     marginTop: 4,
   },
   searchContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 24,
     marginBottom: 24,
   },
   searchInput: {
     flex: 1,
-    backgroundColor: '#16213e',
-    color: '#fff',
+    backgroundColor: "#16213e",
+    color: "#fff",
     borderRadius: 12,
     padding: 14,
     fontSize: 16,
     marginRight: 10,
   },
   searchButton: {
-    backgroundColor: '#e94560',
+    backgroundColor: "#e94560",
     borderRadius: 12,
     paddingHorizontal: 20,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   searchButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 16,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
     marginHorizontal: 24,
     marginBottom: 12,
   },
   quickActions: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     marginHorizontal: 24,
     gap: 12,
     marginBottom: 24,
   },
   actionCard: {
-    backgroundColor: '#16213e',
+    backgroundColor: "#16213e",
     borderRadius: 12,
     padding: 16,
-    alignItems: 'center',
-    width: '45%',
+    alignItems: "center",
+    width: "45%",
   },
   actionText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: "600",
     marginTop: 8,
   },
   recentCard: {
-    backgroundColor: '#16213e',
+    backgroundColor: "#16213e",
     borderRadius: 12,
     padding: 16,
     marginHorizontal: 24,
     marginBottom: 12,
     borderLeftWidth: 4,
-    borderLeftColor: '#e94560',
+    borderLeftColor: "#e94560",
   },
   recentRoute: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 4,
   },
   recentDetails: {
-    color: '#888',
+    color: "#888",
     fontSize: 13,
   },
 });
