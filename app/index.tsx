@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 42,
     fontWeight: "bold",
-    color: "#e94560",
+    color: "#ff8c42",
   },
   subtitle: {
     fontSize: 14,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   actionCard: {
-    backgroundColor: "#16213e",
+    backgroundColor: "#5ba3e0",
     borderRadius: 12,
     padding: 16,
     alignItems: "center",

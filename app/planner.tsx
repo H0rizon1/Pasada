@@ -1,87 +1,104 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Modal, TextInput, Platform } from 'react-native';
-import { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { useLanguage } from '../constants/langcontext';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { Ionicons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { useState } from "react";
+import {
+  Modal,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useLanguage } from "../constants/langcontext";
 
 type Trip = {
-    id: string;
-    origin: string;
-    destination: string;
-    date: string;
-    time: string;
+  id: string;
+  origin: string;
+  destination: string;
+  date: string;
+  time: string;
 };
 
 export default function PlannerScreen() {
-    const { language } = useLanguage();
-    const [trips, setTrips] = useState<Trip[]>([]);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [origin, setOrigin] = useState('');
-    const [destination, setDestination] = useState('');
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [selectedTime, setSelectedTime] = useState(new Date());
-    const [showDatePicker, setShowDatePicker] = useState(false);
-    const [showTimePicker, setShowTimePicker] = useState(false);
+  const { language } = useLanguage();
+  const [trips, setTrips] = useState<Trip[]>([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
 
-    const formatDate = (date: Date) =>
-        date.toLocaleDateString('en-PH', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-        });
-    
-    const formatTime = (time: Date) =>
-        time.toLocaleTimeString('en-PH', {
-            hour: '2-digit',
-            minute: '2-digit',
-        });
+  const formatDate = (date: Date) =>
+    date.toLocaleDateString("en-PH", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
 
-        const addTrip = () => {
-            if (!origin || !destination) return;
-            const newTrip: Trip = {
-                id: Date.now().toString(),
-                origin,
-                destination,
-                date: formatDate(selectedDate),
-                time: formatTime(selectedTime),
-            };
-            setTrips(prev => [newTrip, ...prev]);
-            setOrigin('');
-            setDestination('');
-            setSelectedDate(new Date());
-            setSelectedTime(new Date());
-            setModalVisible(false);
-        };
+  const formatTime = (time: Date) =>
+    time.toLocaleTimeString("en-PH", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
-        const deleteTrip = (id: string) => {
-            setTrips(prev => prev.filter(trip => trip.id !== id));
-        };
+  const addTrip = () => {
+    if (!origin || !destination) return;
+    const newTrip: Trip = {
+      id: Date.now().toString(),
+      origin,
+      destination,
+      date: formatDate(selectedDate),
+      time: formatTime(selectedTime),
+    };
+    setTrips((prev) => [newTrip, ...prev]);
+    setOrigin("");
+    setDestination("");
+    setSelectedDate(new Date());
+    setSelectedTime(new Date());
+    setModalVisible(false);
+  };
 
-        return (
+  const deleteTrip = (id: string) => {
+    setTrips((prev) => prev.filter((trip) => trip.id !== id));
+  };
+
+  return (
     <View style={styles.container}>
-
       <View style={styles.header}>
         <Text style={styles.title}>
-          {language === 'en' ? 'My Trips' : 'Mga Biyahe Ko'}
+          {language === "en" ? "My Trips" : "Mga Biyahe Ko"}
         </Text>
         <Text style={styles.subtitle}>
-          {language === 'en' ? 'Plan your route ahead of time' : 'Planuhin ang iyong ruta nang maaga'}
+          {language === "en"
+            ? "Plan your route ahead of time"
+            : "Planuhin ang iyong ruta nang maaga"}
         </Text>
       </View>
 
-      <ScrollView style={styles.list} contentContainerStyle={styles.listContent}>
+      <ScrollView
+        style={styles.list}
+        contentContainerStyle={styles.listContent}
+      >
         {trips.length === 0 ? (
           <View style={styles.emptyState}>
             <Ionicons name="map-outline" size={60} color="#333" />
             <Text style={styles.emptyText}>
-              {language === 'en' ? 'No trips planned yet' : 'Wala pang naplanong biyahe'}
+              {language === "en"
+                ? "No trips planned yet"
+                : "Wala pang naplanong biyahe"}
             </Text>
             <Text style={styles.emptySubtext}>
-              {language === 'en' ? 'Tap the + button to add one!' : 'I-tap ang + para magdagdag!'}
+              {language === "en"
+                ? "Tap the + button to add one!"
+                : "I-tap ang + para magdagdag!"}
             </Text>
           </View>
         ) : (
-          trips.map(trip => (
+          trips.map((trip) => (
             <View key={trip.id} style={styles.tripCard}>
               <View style={styles.tripInfo}>
                 <View style={styles.tripRow}>
@@ -96,13 +113,19 @@ export default function PlannerScreen() {
                 <View style={styles.tripDateTime}>
                   <Ionicons name="calendar-outline" size={13} color="#888" />
                   <Text style={styles.tripDateText}>{trip.date}</Text>
-                  <Ionicons name="time-outline" size={13} color="#888" style={{ marginLeft: 8 }} />
+                  <Ionicons
+                    name="time-outline"
+                    size={13}
+                    color="#888"
+                    style={{ marginLeft: 8 }}
+                  />
                   <Text style={styles.tripDateText}>{trip.time}</Text>
                 </View>
               </View>
               <TouchableOpacity
                 style={styles.deleteButton}
-                onPress={() => deleteTrip(trip.id)}>
+                onPress={() => deleteTrip(trip.id)}
+              >
                 <Ionicons name="trash-outline" size={20} color="#e94560" />
               </TouchableOpacity>
             </View>
@@ -111,7 +134,8 @@ export default function PlannerScreen() {
       </ScrollView>
       <TouchableOpacity
         style={styles.fab}
-        onPress={() => setModalVisible(true)}>
+        onPress={() => setModalVisible(true)}
+      >
         <Ionicons name="add" size={32} color="#fff" />
       </TouchableOpacity>
 
@@ -119,30 +143,37 @@ export default function PlannerScreen() {
         visible={modalVisible}
         transparent
         animationType="slide"
-        onRequestClose={() => setModalVisible(false)}>
+        onRequestClose={() => setModalVisible(false)}
+      >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>
-              {language === 'en' ? 'Plan a Trip' : 'Mag-plano ng Biyahe'}
+              {language === "en" ? "Plan a Trip" : "Mag-plano ng Biyahe"}
             </Text>
 
             <Text style={styles.inputLabel}>
-              {language === 'en' ? 'From' : 'Mula sa'}
+              {language === "en" ? "From" : "Mula sa"}
             </Text>
             <TextInput
               style={styles.input}
-              placeholder={language === 'en' ? 'Enter origin...' : 'Ilagay ang simula...'}
+              placeholder={
+                language === "en" ? "Enter origin..." : "Ilagay ang simula..."
+              }
               placeholderTextColor="#888"
               value={origin}
               onChangeText={setOrigin}
             />
 
             <Text style={styles.inputLabel}>
-              {language === 'en' ? 'To' : 'Patungo sa'}
+              {language === "en" ? "To" : "Patungo sa"}
             </Text>
             <TextInput
               style={styles.input}
-              placeholder={language === 'en' ? 'Enter destination...' : 'Ilagay ang patutunguhan...'}
+              placeholder={
+                language === "en"
+                  ? "Enter destination..."
+                  : "Ilagay ang patutunguhan..."
+              }
               placeholderTextColor="#888"
               value={destination}
               onChangeText={setDestination}
@@ -151,25 +182,31 @@ export default function PlannerScreen() {
             <View style={styles.dateTimeRow}>
               <View style={styles.dateTimeBlock}>
                 <Text style={styles.inputLabel}>
-                  {language === 'en' ? 'Date' : 'Petsa'}
+                  {language === "en" ? "Date" : "Petsa"}
                 </Text>
                 <TouchableOpacity
                   style={styles.dateTimeButton}
-                  onPress={() => setShowDatePicker(true)}>
+                  onPress={() => setShowDatePicker(true)}
+                >
                   <Ionicons name="calendar-outline" size={16} color="#e94560" />
-                  <Text style={styles.dateTimeText}>{formatDate(selectedDate)}</Text>
+                  <Text style={styles.dateTimeText}>
+                    {formatDate(selectedDate)}
+                  </Text>
                 </TouchableOpacity>
               </View>
 
               <View style={styles.dateTimeBlock}>
                 <Text style={styles.inputLabel}>
-                  {language === 'en' ? 'Time' : 'Oras'}
+                  {language === "en" ? "Time" : "Oras"}
                 </Text>
                 <TouchableOpacity
                   style={styles.dateTimeButton}
-                  onPress={() => setShowTimePicker(true)}>
+                  onPress={() => setShowTimePicker(true)}
+                >
                   <Ionicons name="time-outline" size={16} color="#e94560" />
-                  <Text style={styles.dateTimeText}>{formatTime(selectedTime)}</Text>
+                  <Text style={styles.dateTimeText}>
+                    {formatTime(selectedTime)}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -178,7 +215,7 @@ export default function PlannerScreen() {
               <DateTimePicker
                 value={selectedDate}
                 mode="date"
-                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                display={Platform.OS === "ios" ? "spinner" : "default"}
                 minimumDate={new Date()}
                 onChange={(event, date) => {
                   setShowDatePicker(false);
@@ -191,7 +228,7 @@ export default function PlannerScreen() {
               <DateTimePicker
                 value={selectedTime}
                 mode="time"
-                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                display={Platform.OS === "ios" ? "spinner" : "default"}
                 onChange={(event, time) => {
                   setShowTimePicker(false);
                   if (time) setSelectedTime(time);
@@ -202,147 +239,144 @@ export default function PlannerScreen() {
             <View style={styles.modalButtons}>
               <TouchableOpacity
                 style={styles.cancelButton}
-                onPress={() => setModalVisible(false)}>
+                onPress={() => setModalVisible(false)}
+              >
                 <Text style={styles.cancelText}>
-                  {language === 'en' ? 'Cancel' : 'Kanselahin'}
+                  {language === "en" ? "Cancel" : "Kanselahin"}
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.confirmButton}
-                onPress={addTrip}>
+              <TouchableOpacity style={styles.confirmButton} onPress={addTrip}>
                 <Text style={styles.confirmText}>
-                  {language === 'en' ? 'Add Trip' : 'Idagdag'}
+                  {language === "en" ? "Add Trip" : "Idagdag"}
                 </Text>
               </TouchableOpacity>
             </View>
-
           </View>
         </View>
       </Modal>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1, 
-        backgroundColor: '#1a1a2e',
-    },
-    header: {
-        padding: 24,
-        paddingTop: 40,
-    },
-    title: {
-        fontSize: 32,
-        fontWeight: 'bold',
-        color: '#fff',
-    },
-    subtitle: {
-        fontSize: 14,
-        color: '#888',
-        marginTop: 4,
-    },
-    list: {
-        flex: 1,
-    },
-    listContent: {
-        paddingHorizontal: 24,
-        paddingBottom: 100,
-    },
-    emptyState: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 80,
-        gap: 12,
-    },
-    emptyText: {
-        color: '#555',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    emptySubtext: {
-        color: '#444',
-        fontSize: 14,
-    },
-    tripCard: {
-        backgroundColor: '#16213e',
-        borderRadius: 12,
-        padding: 16,
-        marginBottom: 12,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderLeftWidth: 4,
-        borderLeftColor: '#e94560',
-    },
-    tripInfo: {
-        flex: 1,
-    },
-    tripRow: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
-    },
-    dotGreen: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: '#4caf50',
-    },
-    dotRed: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: '#e94560',
-    },
-    dottedLine: {
-        width: 2,
-        height: 16,
-        backgroundColor: '#333',
-        marginLeft: 4,
-        marginVertical: 2,
-    },
-    tripLocation: {
-    color: '#fff',
+  container: {
+    flex: 1,
+    backgroundColor: "#1a1a2e",
+  },
+  header: {
+    padding: 24,
+    paddingTop: 40,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "#ff8c42",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#888",
+    marginTop: 4,
+  },
+  list: {
+    flex: 1,
+  },
+  listContent: {
+    paddingHorizontal: 24,
+    paddingBottom: 100,
+  },
+  emptyState: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 80,
+    gap: 12,
+  },
+  emptyText: {
+    color: "#555",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  emptySubtext: {
+    color: "#444",
+    fontSize: 14,
+  },
+  tripCard: {
+    backgroundColor: "#16213e",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    borderLeftWidth: 4,
+    borderLeftColor: "#e94560",
+  },
+  tripInfo: {
+    flex: 1,
+  },
+  tripRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  dotGreen: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#4caf50",
+  },
+  dotRed: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#e94560",
+  },
+  dottedLine: {
+    width: 2,
+    height: 16,
+    backgroundColor: "#333",
+    marginLeft: 4,
+    marginVertical: 2,
+  },
+  tripLocation: {
+    color: "#fff",
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   tripDateTime: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 8,
     gap: 4,
   },
   tripDateText: {
-    color: '#888',
+    color: "#888",
     fontSize: 12,
   },
   deleteButton: {
     padding: 8,
   },
   fab: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 30,
     right: 24,
-    backgroundColor: '#e94560',
+    backgroundColor: "#e94560",
     width: 60,
     height: 60,
     borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     elevation: 5,
-    shadowColor: '#e94560',
+    shadowColor: "#e94560",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 8,
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'flex-end',
+    backgroundColor: "rgba(0,0,0,0.7)",
+    justifyContent: "flex-end",
   },
   modalContent: {
-    backgroundColor: '#16213e',
+    backgroundColor: "#16213e",
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     padding: 24,
@@ -350,25 +384,25 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
     marginBottom: 8,
   },
   inputLabel: {
-    color: '#888',
+    color: "#888",
     fontSize: 13,
     marginBottom: 4,
   },
   input: {
-    backgroundColor: '#1a1a2e',
-    color: '#fff',
+    backgroundColor: "#1a1a2e",
+    color: "#fff",
     borderRadius: 12,
     padding: 14,
     fontSize: 16,
     marginBottom: 8,
   },
   dateTimeRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 12,
     marginBottom: 8,
   },
@@ -376,42 +410,42 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   dateTimeButton: {
-    backgroundColor: '#1a1a2e',
+    backgroundColor: "#1a1a2e",
     borderRadius: 12,
     padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   dateTimeText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 13,
   },
   modalButtons: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 12,
     marginTop: 8,
   },
   cancelButton: {
     flex: 1,
-    backgroundColor: '#1a1a2e',
+    backgroundColor: "#1a1a2e",
     borderRadius: 12,
     padding: 14,
-    alignItems: 'center',
+    alignItems: "center",
   },
   cancelText: {
-    color: '#888',
-    fontWeight: '600',
+    color: "#888",
+    fontWeight: "600",
   },
   confirmButton: {
     flex: 1,
-    backgroundColor: '#e94560',
+    backgroundColor: "#e94560",
     borderRadius: 12,
     padding: 14,
-    alignItems: 'center',
+    alignItems: "center",
   },
   confirmText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
-})
+});

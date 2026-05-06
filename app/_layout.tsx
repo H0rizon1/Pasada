@@ -9,7 +9,7 @@ export default function Layout() {
         screenOptions={{
           tabBarStyle: {
             backgroundColor: "#1a1a2e",
-            borderTopColor: "#1a1a2e",
+            borderTopColor: "#ff8c42",
             justifyContent: "center",
             alignItems: "center",
           },
@@ -17,7 +17,7 @@ export default function Layout() {
             justifyContent: "center",
             alignItems: "center",
           },
-          tabBarActiveTintColor: "#e94560",
+          tabBarActiveTintColor: "#ff8c42",
           tabBarInactiveTintColor: "#888",
           headerStyle: { backgroundColor: "#1a1a2e" },
           headerTintColor: "#ffffff",
