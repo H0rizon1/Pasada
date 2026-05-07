@@ -134,7 +134,10 @@ export default function HomeScreen() {
       <View
         style={[
           styles.recentCard,
-          { backgroundColor: colors.card, borderLeftColor: colors.heading },
+          {
+            backgroundColor: colors.cardSecondary,
+            borderLeftColor: colors.heading,
+          },
         ]}
       >
         <Text style={[styles.recentRoute, { color: colors.text }]}>
@@ -147,14 +150,14 @@ export default function HomeScreen() {
       <View
         style={[
           styles.recentCard,
-          { backgroundColor: colors.card, borderLeftColor: colors.heading },
+          {
+            backgroundColor: colors.cardSecondary,
+            borderLeftColor: colors.heading,
+          },
         ]}
       >
         <Text style={[styles.recentRoute, { color: colors.text }]}>
           Taguig → Manila
-        </Text>
-        <Text style={[styles.recentDetails, { color: colors.subtitle }]}>
-          E-trike → LRT-1 · ₱28
         </Text>
       </View>
     </ScrollView>
