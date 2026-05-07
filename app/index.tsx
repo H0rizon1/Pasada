@@ -9,9 +9,11 @@ import {
   View,
 } from "react-native";
 import { useLanguage } from "../constants/langcontext";
+import { useTheme } from "../constants/ThemeContext";
 
 export default function HomeScreen() {
   const { t, language, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme, colors } = useTheme();
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -21,73 +23,139 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
-          <Text style={styles.greeting}>{getGreeting()}</Text>
-          {/* Language Toggle */}
-          <TouchableOpacity style={styles.langToggle} onPress={toggleLanguage}>
-            <Text style={styles.langToggleText}>
-              {language === "en" ? "🇵🇭 FIL" : "🇬🇧 EN"}
-            </Text>
-          </TouchableOpacity>
+          <Text style={[styles.greeting, { color: colors.subtitle }]}>
+            {getGreeting()}
+          </Text>
+          {/* Toggles */}
+          <View style={styles.toggleRow}>
+            {/* Theme Toggle */}
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                { backgroundColor: colors.card, borderColor: colors.border },
+              ]}
+              onPress={toggleTheme}
+            >
+              <Ionicons
+                name={theme === "dark" ? "sunny" : "moon"}
+                size={16}
+                color={colors.heading}
+              />
+            </TouchableOpacity>
+            {/* Language Toggle */}
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                { backgroundColor: colors.card, borderColor: colors.border },
+              ]}
+              onPress={toggleLanguage}
+            >
+              <Text style={[styles.langToggleText, { color: colors.text }]}>
+                {language === "en" ? "🇵🇭" : "🇬🇧"}
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <Text style={styles.title}>Pasada</Text>
-        <Text style={styles.subtitle}>{t.app}</Text>
+        <Text style={[styles.title, { color: colors.heading }]}>Pasada</Text>
+        <Text style={[styles.subtitle, { color: colors.subtitle }]}>
+          {t.app}
+        </Text>
       </View>
 
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <TextInput
-          style={styles.searchInput}
+          style={[
+            styles.searchInput,
+            { backgroundColor: colors.input, color: colors.text },
+          ]}
           placeholder={t.search}
-          placeholderTextColor="#888"
+          placeholderTextColor={colors.placeholder}
         />
-        <TouchableOpacity style={styles.searchButton}>
+        <TouchableOpacity
+          style={[styles.searchButton, { backgroundColor: colors.heading }]}
+        >
           <Text style={styles.searchButtonText}>Go</Text>
         </TouchableOpacity>
       </View>
 
       {/* Quick Actions */}
-      <Text style={styles.sectionTitle}>{t.quick_actions}</Text>
+      <Text style={[styles.sectionTitle, { color: colors.text }]}>
+        {t.quick_actions}
+      </Text>
       <View style={styles.quickActions}>
         <TouchableOpacity
-          style={styles.actionCard}
+          style={[styles.actionCard, { backgroundColor: colors.card }]}
           onPress={() => router.push("/planner")}
         >
-          <Ionicons name="map" size={28} color="#ffffff" />
-          <Text style={styles.actionText}>{t.plan}</Text>
+          <Ionicons name="map" size={28} color={colors.heading} />
+          <Text style={[styles.actionText, { color: colors.text }]}>
+            {t.plan}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.actionCard}
+          style={[styles.actionCard, { backgroundColor: colors.card }]}
           onPress={() => router.push("/routes")}
         >
-          <Ionicons name="bus" size={28} color="#ffffff" />
-          <Text style={styles.actionText}>{t.routes}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.actionCard}>
-          <Ionicons name="location" size={28} color="#ffffff" />
-          <Text style={styles.actionText}>{t.near_me}</Text>
+          <Ionicons name="bus" size={28} color={colors.heading} />
+          <Text style={[styles.actionText, { color: colors.text }]}>
+            {t.routes}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.actionCard}
+          style={[styles.actionCard, { backgroundColor: colors.card }]}
+        >
+          <Ionicons name="location" size={28} color={colors.heading} />
+          <Text style={[styles.actionText, { color: colors.text }]}>
+            {t.near_me}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.actionCard, { backgroundColor: colors.card }]}
           onPress={() => router.push("/compare")}
         >
-          <Ionicons name="cash" size={28} color="#ffffff" />
-          <Text style={styles.actionText}>{t.compare}</Text>
+          <Ionicons name="wallet" size={28} color={colors.heading} />
+          <Text style={[styles.actionText, { color: colors.text }]}>
+            {t.compare}
+          </Text>
         </TouchableOpacity>
       </View>
 
       {/* Recent Trips */}
-      <Text style={styles.sectionTitle}>{t.recents}</Text>
-      <View style={styles.recentCard}>
-        <Text style={styles.recentRoute}>Makati → Quezon City</Text>
-        <Text style={styles.recentDetails}>LRT-1 → MRT-3 → Jeepney · ₱45</Text>
+      <Text style={[styles.sectionTitle, { color: colors.text }]}>
+        {t.recents}
+      </Text>
+      <View
+        style={[
+          styles.recentCard,
+          { backgroundColor: colors.card, borderLeftColor: colors.heading },
+        ]}
+      >
+        <Text style={[styles.recentRoute, { color: colors.text }]}>
+          Makati → Quezon City
+        </Text>
+        <Text style={[styles.recentDetails, { color: colors.subtitle }]}>
+          LRT-1 → MRT-3 → Jeepney · ₱45
+        </Text>
       </View>
-      <View style={styles.recentCard}>
-        <Text style={styles.recentRoute}>Taguig → Manila</Text>
-        <Text style={styles.recentDetails}>E-trike → LRT-1 · ₱28</Text>
+      <View
+        style={[
+          styles.recentCard,
+          { backgroundColor: colors.card, borderLeftColor: colors.heading },
+        ]}
+      >
+        <Text style={[styles.recentRoute, { color: colors.text }]}>
+          Taguig → Manila
+        </Text>
+        <Text style={[styles.recentDetails, { color: colors.subtitle }]}>
+          E-trike → LRT-1 · ₱28
+        </Text>
       </View>
     </ScrollView>
   );
@@ -96,7 +164,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1a1a2e",
   },
   header: {
     padding: 24,
@@ -110,29 +177,28 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 14,
-    color: "#888",
   },
-  langToggle: {
-    backgroundColor: "#16213e",
-    paddingHorizontal: 12,
+  toggleRow: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  toggleButton: {
+    paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "#e94560",
+    alignItems: "center",
+    justifyContent: "center",
   },
   langToggleText: {
-    color: "#fff",
-    fontSize: 13,
-    fontWeight: "600",
+    fontSize: 14,
   },
   title: {
     fontSize: 42,
     fontWeight: "bold",
-    color: "#ff8c42",
   },
   subtitle: {
     fontSize: 14,
-    color: "#aaa",
     marginTop: 4,
   },
   searchContainer: {
@@ -142,15 +208,12 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    backgroundColor: "#16213e",
-    color: "#fff",
     borderRadius: 12,
     padding: 14,
     fontSize: 16,
     marginRight: 10,
   },
   searchButton: {
-    backgroundColor: "#e94560",
     borderRadius: 12,
     paddingHorizontal: 20,
     justifyContent: "center",
@@ -163,7 +226,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#fff",
     marginHorizontal: 24,
     marginBottom: 12,
   },
@@ -175,35 +237,29 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   actionCard: {
-    backgroundColor: "#5ba3e0",
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
     width: "45%",
   },
   actionText: {
-    color: "#fff",
     fontSize: 14,
     fontWeight: "600",
     marginTop: 8,
   },
   recentCard: {
-    backgroundColor: "#16213e",
     borderRadius: 12,
     padding: 16,
     marginHorizontal: 24,
     marginBottom: 12,
     borderLeftWidth: 4,
-    borderLeftColor: "#e94560",
   },
   recentRoute: {
-    color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 4,
   },
   recentDetails: {
-    color: "#888",
     fontSize: 13,
   },
 });
