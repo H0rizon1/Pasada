@@ -56,25 +56,25 @@ export default function HomeScreen() {
           style={styles.actionCard}
           onPress={() => router.push("/planner")}
         >
-          <Ionicons name="map" size={28} color="#e94560" />
+          <Ionicons name="map" size={28} color="#ffffff" />
           <Text style={styles.actionText}>{t.plan}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.actionCard}
           onPress={() => router.push("/routes")}
         >
-          <Ionicons name="bus" size={28} color="#e94560" />
+          <Ionicons name="bus" size={28} color="#ffffff" />
           <Text style={styles.actionText}>{t.routes}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionCard}>
-          <Ionicons name="location" size={28} color="#e94560" />
+          <Ionicons name="location" size={28} color="#ffffff" />
           <Text style={styles.actionText}>{t.near_me}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.actionCard}
           onPress={() => router.push("/compare")}
         >
-          <Ionicons name="cash" size={28} color="#e94560" />
+          <Ionicons name="cash" size={28} color="#ffffff" />
           <Text style={styles.actionText}>{t.compare}</Text>
         </TouchableOpacity>
       </View>
