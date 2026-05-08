@@ -12,10 +12,7 @@ export default function Layout() {
             tabBarStyle: {
               backgroundColor: "#1a1a2e",
               borderTopColor: "#FF8C42",
-            },
-            tabBarItemStyle: {
-              justifyContent: "center",
-              alignItems: "center",
+              justifyContent: "space-around",
             },
             tabBarActiveTintColor: "#FF8C42",
             tabBarInactiveTintColor: "#888",
@@ -62,7 +59,10 @@ export default function Layout() {
           <Tabs.Screen
             name="compare"
             options={{
-              tabBarButton: () => null,
+              title: "Compare",
+              tabBarIcon: ({ color }) => (
+                <Ionicons name="wallet" size={22} color={color} />
+              ),
             }}
           />
         </Tabs>

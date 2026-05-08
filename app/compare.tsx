@@ -1,103 +1,148 @@
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useLanguage } from "../constants/langcontext";
+import { useTheme } from "../constants/ThemeContext";
 
 export default function CompareScreen() {
   const { language } = useLanguage();
+  const { colors } = useTheme();
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <View style={styles.header}>
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: colors.heading }]}>
           {language === "en" ? "Cost Comparison" : "Paghahambing ng Gastos"}
         </Text>
-        <Text style={styles.subtitle}>
+        <Text style={[styles.subtitle, { color: colors.subtitle }]}>
           {language === "en"
-            ? "Public transit | Private Car"
-            : "Pampublikong sasakyan | Sariling sasakyan"}
+            ? "Public transit vs private car"
+            : "Pampublikong sasakyan vs sariling sasakyan"}
         </Text>
       </View>
 
-      <View style={styles.routeLabel}>
-        <Ionicons name="navigate" size={16} color="#e94560" />
-        <Text style={styles.routeLabelText}>Makati → Quezon City</Text>
+      <View
+        style={[styles.routeLabel, { backgroundColor: colors.cardSecondary }]}
+      >
+        <Ionicons name="navigate" size={16} color={colors.heading} />
+        <Text style={[styles.routeLabelText, { color: colors.text }]}>
+          Makati → Quezon City
+        </Text>
       </View>
 
       <View style={styles.cardsRow}>
-        <View style={[styles.card, styles.cardLeft]}>
+        <View
+          style={[
+            styles.card,
+            { backgroundColor: colors.cardSecondary, borderColor: "#4caf50" },
+          ]}
+        >
           <Ionicons name="bus" size={32} color="#4caf50" />
-          <Text style={styles.cardTitle}>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>
             {language === "en" ? "Public Transit" : "Pampubliko"}
           </Text>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>₱45</Text>
-            <Text style={styles.statLabel}>
+            <Text style={[styles.statValue, { color: colors.text }]}>₱45</Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Cost" : "Gastos"}
             </Text>
           </View>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>42 mins</Text>
-            <Text style={styles.statLabel}>
+            <Text style={[styles.statValue, { color: colors.text }]}>
+              42 mins
+            </Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Travel Time" : "Oras ng Biyahe"}
             </Text>
           </View>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>Low 🌿</Text>
-            <Text style={styles.statLabel}>CO₂</Text>
+            <Text style={[styles.statValue, { color: colors.text }]}>
+              Low 🌿
+            </Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
+              CO₂
+            </Text>
           </View>
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>
-              {language === "en" ? "✅ Recommended" : "✅ Inirerekomenda"}
+          <View style={[styles.badge, { backgroundColor: "#4caf5033" }]}>
+            <Text style={[styles.badgeText, { color: "#4caf50" }]}>
+              ✅ {language === "en" ? "Recommended" : "Inirerekomenda"}
             </Text>
           </View>
         </View>
 
-        <View style={[styles.card, styles.cardRight]}>
-          <Ionicons name="car" size={32} color="#e94560" />
-          <Text style={styles.cardTitle}>
+        <View
+          style={[
+            styles.card,
+            {
+              backgroundColor: colors.cardSecondary,
+              borderColor: colors.heading,
+            },
+          ]}
+        >
+          <Ionicons name="car" size={32} color={colors.heading} />
+          <Text style={[styles.cardTitle, { color: colors.text }]}>
             {language === "en" ? "Private Car" : "Sariling Sasakyan"}
           </Text>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>₱320</Text>
-            <Text style={styles.statLabel}>
+            <Text style={[styles.statValue, { color: colors.text }]}>₱320</Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Cost" : "Gastos"}
             </Text>
           </View>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>1hr 10mins</Text>
-            <Text style={styles.statLabel}>
+            <Text style={[styles.statValue, { color: colors.text }]}>
+              1hr 10mins
+            </Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Travel Time" : "Oras ng Biyahe"}
             </Text>
           </View>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>High 🏭</Text>
-            <Text style={styles.statLabel}>CO₂</Text>
+            <Text style={[styles.statValue, { color: colors.text }]}>
+              High 🏭
+            </Text>
+            <Text style={[styles.statLabel, { color: colors.subtitle }]}>
+              CO₂
+            </Text>
           </View>
-          <View style={[styles.badge, styles.badgeRed]}>
-            <Text style={styles.badgeText}>
-              {language === "en" ? "❌ Costly" : "❌ Mahal"}
+          <View style={[styles.badge, { backgroundColor: "#FF8C4233" }]}>
+            <Text style={[styles.badgeText, { color: colors.heading }]}>
+              ❌ {language === "en" ? "Costly" : "Mahal"}
             </Text>
           </View>
         </View>
       </View>
 
-      {/* Savings Summary */}
-      <View style={styles.savingsCard}>
-        <Text style={styles.savingsTitle}>
+      <View
+        style={[
+          styles.savingsCard,
+          {
+            backgroundColor: colors.cardSecondary,
+            borderColor: colors.heading,
+          },
+        ]}
+      >
+        <Text style={[styles.savingsTitle, { color: colors.text }]}>
+          🎉{" "}
           {language === "en"
-            ? "🎉 You save with public transit!"
-            : "🎉 Makatipid ka sa pampublikong sasakyan!"}
+            ? "You save with public transit!"
+            : "Makatipid ka sa pampublikong sasakyan!"}
         </Text>
         <View style={styles.savingsRow}>
           <View style={styles.savingsStat}>
-            <Text style={styles.savingsValue}>₱275</Text>
-            <Text style={styles.savingsLabel}>
+            <Text style={[styles.savingsValue, { color: colors.heading }]}>
+              ₱275
+            </Text>
+            <Text style={[styles.savingsLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Money Saved" : "Natipid na Pera"}
             </Text>
           </View>
           <View style={styles.savingsStat}>
-            <Text style={styles.savingsValue}>28 mins</Text>
-            <Text style={styles.savingsLabel}>
+            <Text style={[styles.savingsValue, { color: colors.heading }]}>
+              28 mins
+            </Text>
+            <Text style={[styles.savingsLabel, { color: colors.subtitle }]}>
               {language === "en" ? "Time Saved" : "Natipid na Oras"}
             </Text>
           </View>
@@ -108,38 +153,20 @@ export default function CompareScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#1a1a2e",
-  },
-  header: {
-    padding: 24,
-    paddingTop: 40,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#ff8c42",
-  },
-  subtitle: {
-    fontSize: 14,
-    color: "#888",
-    marginTop: 4,
-  },
+  container: { flex: 1 },
+  header: { padding: 24, paddingTop: 40 },
+  title: { fontSize: 28, fontWeight: "bold" },
+  subtitle: { fontSize: 14, marginTop: 4 },
   routeLabel: {
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
     marginHorizontal: 24,
-    backgroundColor: "#16213e",
+    marginBottom: 16,
     padding: 12,
     borderRadius: 12,
   },
-  routeLabelText: {
-    color: "#fff",
-    fontSize: 15,
-    fontWeight: "600",
-  },
+  routeLabelText: { fontSize: 15, fontWeight: "600" },
   cardsRow: {
     flexDirection: "row",
     marginHorizontal: 24,
@@ -152,81 +179,29 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     gap: 12,
-  },
-  cardLeft: {
-    backgroundColor: "#1a2e1a",
     borderWidth: 1,
-    borderColor: "#4caf50",
   },
-  cardRight: {
-    backgroundColor: "#2e1a1a",
-    borderWidth: 1,
-    borderColor: "#e94560",
-  },
-  cardTitle: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 14,
-    textAlign: "center",
-  },
-  stat: {
-    alignItems: "center",
-  },
-  statValue: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  statLabel: {
-    color: "#888",
-    fontSize: 11,
-    marginTop: 2,
-  },
-  badge: {
-    backgroundColor: "#4caf5033",
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  badgeRed: {
-    backgroundColor: "#e9456033",
-  },
-  badgeText: {
-    color: "#fff",
-    fontSize: 11,
-    fontWeight: "600",
-  },
+  cardTitle: { fontWeight: "bold", fontSize: 14, textAlign: "center" },
+  stat: { alignItems: "center" },
+  statValue: { fontSize: 16, fontWeight: "bold" },
+  statLabel: { fontSize: 11, marginTop: 2 },
+  badge: { borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4 },
+  badgeText: { fontSize: 11, fontWeight: "600" },
   savingsCard: {
-    backgroundColor: "#16213e",
     borderRadius: 16,
     marginHorizontal: 24,
     padding: 20,
     marginBottom: 40,
     borderWidth: 1,
-    borderColor: "#e94560",
   },
   savingsTitle: {
-    color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
     marginBottom: 16,
     textAlign: "center",
   },
-  savingsRow: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  savingsStat: {
-    alignItems: "center",
-  },
-  savingsValue: {
-    color: "#e94560",
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  savingsLabel: {
-    color: "#888",
-    fontSize: 12,
-    marginTop: 4,
-  },
+  savingsRow: { flexDirection: "row", justifyContent: "space-around" },
+  savingsStat: { alignItems: "center" },
+  savingsValue: { fontSize: 24, fontWeight: "bold" },
+  savingsLabel: { fontSize: 12, marginTop: 4 },
 });
