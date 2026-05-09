@@ -76,7 +76,7 @@ export default function CompareScreen() {
             styles.card,
             {
               backgroundColor: colors.cardSecondary,
-              borderColor: colors.heading,
+              borderColor: "#e94560",
             },
           ]}
         >

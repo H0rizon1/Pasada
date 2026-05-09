@@ -13,6 +13,7 @@ type ThemeContextType = {
     text: string;
     subtitle: string;
     border: string;
+    cardBorder: string;
     input: string;
     placeholder: string;
   };
@@ -26,18 +27,20 @@ const darkColors = {
   text: "#ffffff",
   subtitle: "#888",
   border: "#FF8C42",
+  cardBorder: "#e94560",
   input: "#16213e",
   placeholder: "#888",
 };
 
 const lightColors = {
   background: "#F5F5F5",
-  card: "#ffffff",
-  cardSecondary: "e8e8e8",
+  card: "#5ba3e0",
+  cardSecondary: "#16213e",
   heading: "#FF8C42",
-  text: "#1a1a2e",
-  subtitle: "#555",
+  text: "#ffffff",
+  subtitle: "#aaa",
   border: "#FF8C42",
+  cardBorder: "transparent",
   input: "#e8e8e8",
   placeholder: "#aaa",
 };

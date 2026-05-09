@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import {
   Modal,
@@ -7,7 +8,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -65,6 +65,26 @@ export default function PlannerScreen() {
   const deleteTrip = (id: string) => {
     setTrips((prev) => prev.filter((trip) => trip.id !== id));
   };
+
+  const locations = [
+    "Caloocan",
+    "Las Piñas",
+    "Makati",
+    "Malabon",
+    "Mandaluyong",
+    "Manila",
+    "Marikina",
+    "Muntinlupa",
+    "Navotas",
+    "Parañaque",
+    "Pasay",
+    "Pasig",
+    "Pateros",
+    "Quezon City",
+    "San Juan",
+    "Taguig",
+    "Valenzuela",
+  ];
 
   return (
     <View style={styles.container}>
@@ -154,30 +174,38 @@ export default function PlannerScreen() {
             <Text style={styles.inputLabel}>
               {language === "en" ? "From" : "Mula sa"}
             </Text>
-            <TextInput
-              style={styles.input}
-              placeholder={
-                language === "en" ? "Enter origin..." : "Ilagay ang simula..."
-              }
-              placeholderTextColor="#888"
-              value={origin}
-              onChangeText={setOrigin}
-            />
-
-            <Text style={styles.inputLabel}>
-              {language === "en" ? "To" : "Patungo sa"}
-            </Text>
-            <TextInput
-              style={styles.input}
-              placeholder={
-                language === "en"
-                  ? "Enter destination..."
-                  : "Ilagay ang patutunguhan..."
-              }
-              placeholderTextColor="#888"
-              value={destination}
-              onChangeText={setDestination}
-            />
+            <View
+              style={[styles.pickerContainer, { backgroundColor: "#1a1a2e" }]}
+            >
+              <Picker
+                selectedValue={origin}
+                onValueChange={(value) => setOrigin(value)}
+                style={{ color: "#fff" }}
+                dropdownIconColor="#FF8C42"
+                mode="dropdown"
+              >
+                <Picker.Item label="Select current location..." value="" />
+                {locations.map((loc) => (
+                  <Picker.Item key={loc} label={loc} value={loc} />
+                ))}
+              </Picker>
+            </View>
+            <View
+              style={[styles.pickerContainer, { backgroundColor: "#1a1a2e" }]}
+            >
+              <Picker
+                selectedValue={destination}
+                onValueChange={(value) => setDestination(value)}
+                style={{ color: "#fff" }}
+                dropdownIconColor="#FF8C42"
+                mode="dropdown"
+              >
+                <Picker.Item label="Select destination..." value="" />
+                {locations.map((loc) => (
+                  <Picker.Item key={loc} label={loc} value={loc} />
+                ))}
+              </Picker>
+            </View>
 
             <View style={styles.dateTimeRow}>
               <View style={styles.dateTimeBlock}>
@@ -447,5 +475,10 @@ const styles = StyleSheet.create({
   confirmText: {
     color: "#fff",
     fontWeight: "bold",
+  },
+  pickerContainer: {
+    borderRadius: 12,
+    marginBottom: 8,
+    overflow: "hidden",
   },
 });
