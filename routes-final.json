@@ -1,0 +1,485 @@
+[
+  {
+    "id": "2M3iAL62FySdK5bHfHUE",
+    "name": "Landmark - Puregold Loop",
+    "stops": [
+      {
+        "name": "Makati Ave/North Dr",
+        "lat": 14.5605,
+        "lng": 121.029
+      },
+      {
+        "name": "Landmark Makati",
+        "lat": 14.5523772,
+        "lng": 121.0233555
+      },
+      {
+        "name": "Ayala Center",
+        "lat": 14.548984,
+        "lng": 121.025742
+      },
+      {
+        "name": "JP Rizal Ave",
+        "lat": 14.562,
+        "lng": 121.04
+      }
+    ],
+    "type": "jeepney",
+    "fare": 13,
+    "duration": "18 mins."
+  },
+  {
+    "id": "4UfzjDNoHtXBdZojjHtL",
+    "duration": "28 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Ayala - Guadalupe Ibabaw via JP Rizal",
+    "stops": [
+      {
+        "name": "Makati Ave/Ayala Ave",
+        "lat": 14.5563492,
+        "lng": 121.021314
+      },
+      {
+        "name": "Greenbelt 1",
+        "lat": 14.5515267,
+        "lng": 121.0219207
+      },
+      {
+        "name": "Greenbelt 5",
+        "lat": 14.5527526,
+        "lng": 121.0212296
+      },
+      {
+        "name": "A. Arnaiz Ave",
+        "lat": 14.5514447,
+        "lng": 121.0140943
+      },
+      {
+        "name": "JP Rizal Ave",
+        "lat": 14.562,
+        "lng": 121.04
+      },
+      {
+        "name": "Guadalupe",
+        "lat": 14.5672248,
+        "lng": 121.0456233
+      }
+    ]
+  },
+  {
+    "id": "5x6lFMmXx5vxIpPBZG8A",
+    "stops": [
+      {
+        "name": "Senator Gil Puyat Ave/Buendia",
+        "lat": 14.5606932,
+        "lng": 121.0282084
+      },
+      {
+        "name": "P. Tamo",
+        "lat": 14.5494342,
+        "lng": 121.012902
+      },
+      {
+        "name": "Chino Roces",
+        "lat": 14.5336873,
+        "lng": 121.0223564
+      },
+      {
+        "name": "PRC/A. Reyes Ave",
+        "lat": 14.5739532,
+        "lng": 121.016135
+      }
+    ],
+    "name": "Buendia - PRC via P. Tamo",
+    "type": "jeepney",
+    "fare": 13,
+    "duration": "24 mins."
+  },
+  {
+    "id": "9BJ6VCgXlWACYxPHkgXv",
+    "duration": "15 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "stops": [
+      {
+        "name": "Makati Ave/A. Arnaiz Ave",
+        "lat": 14.5504028,
+        "lng": 121.0229592
+      },
+      {
+        "name": "Kalayaan Ave",
+        "lat": 14.5613648,
+        "lng": 121.0493628
+      },
+      {
+        "name": "Zapote/Kalayaan Ave",
+        "lat": 14.5693498,
+        "lng": 121.0165628
+      }
+    ],
+    "name": "Ayala - Zapote Road"
+  },
+  {
+    "id": "BFyc1d14dY5rBVvhjdQz",
+    "duration": "22 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Chino Roces - Ayala via P. Tamo",
+    "stops": [
+      {
+        "name": "Don Chino Roces Ave/Pryce Center",
+        "lat": 14.5665,
+        "lng": 121.0135
+      },
+      {
+        "name": "P. Tamo",
+        "lat": 14.5494342,
+        "lng": 121.012902
+      },
+      {
+        "name": "Ayala Ave/B. Yakal",
+        "lat": 14.5665,
+        "lng": 121.013
+      }
+    ]
+  },
+  {
+    "id": "GckY6be6kcJMpssH4lTt",
+    "name": "EDSA/Buendia - Mandaluyong City Hall via Jupiter, Rockwell",
+    "stops": [
+      {
+        "name": "EDSA/Buendia (MRT Buendia)",
+        "lat": 14.5563,
+        "lng": 121.0038
+      },
+      {
+        "name": "Senator Gil Puyat Ave",
+        "lat": 14.5610607,
+        "lng": 121.0145616
+      },
+      {
+        "name": "Jupiter St",
+        "lat": 14.5626517,
+        "lng": 121.0263586
+      },
+      {
+        "name": "Rockwell Center",
+        "lat": 14.565127,
+        "lng": 121.0370091
+      },
+      {
+        "name": "Estrella St",
+        "lat": 14.563564,
+        "lng": 121.0388001
+      },
+      {
+        "name": "Mandaluyong City Hall",
+        "lat": 14.5766,
+        "lng": 121.0347
+      }
+    ],
+    "fare": 13,
+    "type": "jeepney",
+    "duration": "25 mins."
+  },
+  {
+    "id": "HCyZBNflCDcid8phNVZC",
+    "operator": "RRCG Transport",
+    "duration": "45 mins.",
+    "name": "Greenbelt - Alabang Town Center",
+    "type": "P2P",
+    "fare": 80,
+    "stop ": [
+      "Greenbelt 5 Makati",
+      "SLEX",
+      "Alabang Town Center"
+    ],
+    "stops": [
+      {
+        "name": "Greenbelt 5 Makati",
+        "lat": 14.5527526,
+        "lng": 121.0212296
+      },
+      {
+        "name": "SLEX",
+        "lat": 14.5410151,
+        "lng": 121.0162133
+      },
+      {
+        "name": "Alabang Town Center",
+        "lat": 14.4188,
+        "lng": 121.0393
+      }
+    ]
+  },
+  {
+    "id": "KOMRH56ovWhcTgHevHkO",
+    "name": "Ayala - Pateros via JP Rizal",
+    "stops": [
+      {
+        "name": "Makati Ave/Ayala Ave",
+        "lat": 14.5563492,
+        "lng": 121.021314
+      },
+      {
+        "name": "Glorietta",
+        "lat": 14.551233,
+        "lng": 121.0253209
+      },
+      {
+        "name": "Greenbelt",
+        "lat": 14.5529988,
+        "lng": 121.0214001
+      },
+      {
+        "name": "Makati Ave/A. Arnaiz Ave",
+        "lat": 14.5504028,
+        "lng": 121.0229592
+      },
+      {
+        "name": "JP Rizal Ave",
+        "lat": 14.562,
+        "lng": 121.04
+      },
+      {
+        "name": "Guadalupe",
+        "lat": 14.5672248,
+        "lng": 121.0456233
+      },
+      {
+        "name": "Pateros",
+        "lat": 14.5721477,
+        "lng": 121.0232819
+      }
+    ],
+    "fare": 13,
+    "type": "jeepney",
+    "duration": "36 mins."
+  },
+  {
+    "id": "M56QXKq36U4Imp0u99J8",
+    "type": "jeepney",
+    "fare": 13,
+    "stops": [
+      {
+        "name": "Cartimar",
+        "lat": 14.546,
+        "lng": 120.9958
+      },
+      {
+        "name": "Bel Air",
+        "lat": 14.5620342,
+        "lng": 121.0280944
+      },
+      {
+        "name": "EDSA/Buendia",
+        "lat": 14.5563,
+        "lng": 121.0038
+      }
+    ],
+    "name": "Cartimar - EDSA/Buendia via Bel Air",
+    "duration": "20 mins."
+  },
+  {
+    "id": "OdZuUTu1CGCmsFzjrqYN",
+    "duration": "25 mins.",
+    "stops": [
+      {
+        "name": "Guadalupe",
+        "lat": 14.5672248,
+        "lng": 121.0456233
+      },
+      {
+        "name": "Kalayaan Ave",
+        "lat": 14.5613648,
+        "lng": 121.0493628
+      },
+      {
+        "name": "East Rembo",
+        "lat": 14.5571798,
+        "lng": 121.0646856
+      },
+      {
+        "name": "Brgy. Buting",
+        "lat": 14.5679,
+        "lng": 121.0729
+      }
+    ],
+    "name": "Guadalupe (ABC) - Brgy, Buting via Kalayaan Ave",
+    "type": "jeepney",
+    "fare": 13
+  },
+  {
+    "id": "XFBESyiLL6sSi1GhJN4q",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Ayala - P. Burgos via JP Rizal",
+    "stops": [
+      {
+        "name": "Ayala Ave",
+        "lat": 14.5609825,
+        "lng": 121.0154926
+      },
+      {
+        "name": "Makati Ave",
+        "lat": 14.5589563,
+        "lng": 121.0265113
+      },
+      {
+        "name": "P. Burgos",
+        "lat": 14.5630512,
+        "lng": 121.0287713
+      },
+      {
+        "name": "JP Rizal Ave",
+        "lat": 14.562,
+        "lng": 121.04
+      }
+    ],
+    "duration": "20 mins."
+  },
+  {
+    "id": "iDzUfMbfVDVJlaratQpz",
+    "duration": "35 mins.",
+    "stops": [
+      {
+        "name": "Guadalupe Market",
+        "lat": 14.5660856,
+        "lng": 121.0459215
+      },
+      {
+        "name": "JP Rizal Extension",
+        "lat": 14.565,
+        "lng": 121.042
+      },
+      {
+        "name": "Pasig Line",
+        "lat": 14.5740953,
+        "lng": 121.0112112
+      },
+      {
+        "name": "L. Guinto",
+        "lat": 14.567,
+        "lng": 121.07
+      }
+    ],
+    "name": "Guadalupe Market - L. Guinto via Pasig Line",
+    "type": "jeepney",
+    "fare": 13
+  },
+  {
+    "id": "o5iXN8rd5g94X9w1N9DT",
+    "duration": "30 mins.",
+    "name": "Guadalupe Market - L. Guinto via P. Gil",
+    "stops": [
+      {
+        "name": "Guadalupe Market",
+        "lat": 14.5660856,
+        "lng": 121.0459215
+      },
+      {
+        "name": "JP Rizal",
+        "lat": 14.562,
+        "lng": 121.04
+      },
+      {
+        "name": "P. Gil",
+        "lat": 14.5610607,
+        "lng": 121.0145616
+      },
+      {
+        "name": "L. Guinto",
+        "lat": 14.567,
+        "lng": 121.07
+      }
+    ],
+    "fare": 13,
+    "type": "jeepney"
+  },
+  {
+    "id": "qp9gJXMyLXkPnb43pmyn",
+    "type": "ejeepney",
+    "fare": 14,
+    "stops": [
+      {
+        "name": "One Ayala",
+        "lat": 14.5504667,
+        "lng": 121.0279287
+      },
+      {
+        "name": "Ayala Ave",
+        "lat": 14.5609825,
+        "lng": 121.0154926
+      },
+      {
+        "name": "Glorietta",
+        "lat": 14.551233,
+        "lng": 121.0253209
+      },
+      {
+        "name": "Greenbelt 1",
+        "lat": 14.5515267,
+        "lng": 121.0219207
+      },
+      {
+        "name": "Greenbelt 3",
+        "lat": 14.5521939,
+        "lng": 121.0222133
+      },
+      {
+        "name": "Greenbelt 5",
+        "lat": 14.5527526,
+        "lng": 121.0212296
+      },
+      {
+        "name": "Landmark",
+        "lat": 14.5523772,
+        "lng": 121.0233555
+      },
+      {
+        "name": "Makati Ave",
+        "lat": 14.5589563,
+        "lng": 121.0265113
+      },
+      {
+        "name": "Jupiter St",
+        "lat": 14.5626517,
+        "lng": 121.0263586
+      },
+      {
+        "name": "Circuit Makati",
+        "lat": 14.5745505,
+        "lng": 121.0193871
+      }
+    ],
+    "name": "Makati Loop (Love Bus)",
+    "duration": "30 mins.",
+    "schedule": "Mon-Fri 6AM-10PM, Sat-Sun 8:30AM - 12MN",
+    "operator": "Makati City Government"
+  },
+  {
+    "id": "vyFBCiap1qO8Tb1gkj2i",
+    "duration": "50 mins.",
+    "name": "Quezon City - Makati",
+    "stops": [
+      {
+        "name": "Quezon City Terminal",
+        "lat": 14.676,
+        "lng": 121.0437
+      },
+      {
+        "name": "EDSA",
+        "lat": 14.548764,
+        "lng": 121.0277567
+      },
+      {
+        "name": "Ayala Makati",
+        "lat": 14.5533311,
+        "lng": 121.0258991
+      }
+    ],
+    "fare": 60,
+    "type": "P2P"
+  }
+]

@@ -1,0 +1,208 @@
+[
+  {
+    "id": "2M3iAL62FySdK5bHfHUE",
+    "name": "Landmark - Puregold Loop",
+    "stops": [
+      "Makati Ave/North Dr",
+      "Landmark Makati",
+      "Ayala Center",
+      "JP Rizal Ave"
+    ],
+    "type": "jeepney",
+    "fare": 13,
+    "duration": "18 mins."
+  },
+  {
+    "id": "4UfzjDNoHtXBdZojjHtL",
+    "duration": "28 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Ayala - Guadalupe Ibabaw via JP Rizal",
+    "stops": [
+      "Makati Ave/Ayala Ave",
+      "Greenbelt 1",
+      "Greenbelt 5",
+      "A. Arnaiz Ave",
+      "JP Rizal Ave",
+      "Guadalupe"
+    ]
+  },
+  {
+    "id": "5x6lFMmXx5vxIpPBZG8A",
+    "stops": [
+      "Senator Gil Puyat Ave/Buendia",
+      "P. Tamo",
+      "Chino Roces",
+      "PRC/A. Reyes Ave"
+    ],
+    "name": "Buendia - PRC via P. Tamo",
+    "type": "jeepney",
+    "fare": 13,
+    "duration": "24 mins."
+  },
+  {
+    "id": "9BJ6VCgXlWACYxPHkgXv",
+    "duration": "15 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "stops": [
+      "Makati Ave/A. Arnaiz Ave",
+      "Kalayaan Ave",
+      "Zapote/Kalayaan Ave"
+    ],
+    "name": "Ayala - Zapote Road"
+  },
+  {
+    "id": "BFyc1d14dY5rBVvhjdQz",
+    "duration": "22 mins.",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Chino Roces - Ayala via P. Tamo",
+    "stops": [
+      "Don Chino Roces Ave/Pryce Center",
+      "P. Tamo",
+      "Ayala Ave/B. Yakal"
+    ]
+  },
+  {
+    "id": "GckY6be6kcJMpssH4lTt",
+    "name": "EDSA/Buendia - Mandaluyong City Hall via Jupiter, Rockwell",
+    "stops": [
+      "EDSA/Buendia (MRT Buendia)",
+      "Senator Gil Puyat Ave",
+      "Jupiter St",
+      "Rockwell Center",
+      "Estrella St",
+      "Mandaluyong City Hall"
+    ],
+    "fare": 13,
+    "type": "jeepney",
+    "duration": "25 mins."
+  },
+  {
+    "id": "HCyZBNflCDcid8phNVZC",
+    "operator": "RRCG Transport",
+    "duration": "45 mins.",
+    "name": "Greenbelt - Alabang Town Center",
+    "type": "P2P",
+    "fare": 80,
+    "stop ": [
+      "Greenbelt 5 Makati",
+      "SLEX",
+      "Alabang Town Center"
+    ]
+  },
+  {
+    "id": "KOMRH56ovWhcTgHevHkO",
+    "name": "Ayala - Pateros via JP Rizal",
+    "stops": [
+      "Makati Ave/Ayala Ave",
+      "Glorietta",
+      "Greenbelt",
+      "Makati Ave/A. Arnaiz Ave",
+      "JP Rizal Ave",
+      "Guadalupe",
+      "Pateros"
+    ],
+    "fare": 13,
+    "type": "jeepney",
+    "duration": "36 mins."
+  },
+  {
+    "id": "M56QXKq36U4Imp0u99J8",
+    "type": "jeepney",
+    "fare": 13,
+    "stops": [
+      "Cartimar",
+      "Bel Air",
+      "EDSA/Buendia"
+    ],
+    "name": "Cartimar - EDSA/Buendia via Bel Air",
+    "duration": "20 mins."
+  },
+  {
+    "id": "OdZuUTu1CGCmsFzjrqYN",
+    "duration": "25 mins.",
+    "stops": [
+      "Guadalupe",
+      "Kalayaan Ave",
+      "East Rembo",
+      "Brgy. Buting"
+    ],
+    "name": "Guadalupe (ABC) - Brgy, Buting via Kalayaan Ave",
+    "type": "jeepney",
+    "fare": 13
+  },
+  {
+    "id": "XFBESyiLL6sSi1GhJN4q",
+    "type": "jeepney",
+    "fare": 13,
+    "name": "Ayala - P. Burgos via JP Rizal",
+    "stops": [
+      "Ayala Ave",
+      "Makati Ave",
+      "P. Burgos",
+      "JP Rizal Ave"
+    ],
+    "duration": "20 mins."
+  },
+  {
+    "id": "iDzUfMbfVDVJlaratQpz",
+    "duration": "35 mins.",
+    "stops": [
+      "Guadalupe Market",
+      "JP Rizal Extension",
+      "Pasig Line",
+      "L. Guinto"
+    ],
+    "name": "Guadalupe Market - L. Guinto via Pasig Line",
+    "type": "jeepney",
+    "fare": 13
+  },
+  {
+    "id": "o5iXN8rd5g94X9w1N9DT",
+    "duration": "30 mins.",
+    "name": "Guadalupe Market - L. Guinto via P. Gil",
+    "stops": [
+      "Guadalupe Market",
+      "JP Rizal",
+      "P. Gil",
+      "L. Guinto"
+    ],
+    "fare": 13,
+    "type": "jeepney"
+  },
+  {
+    "id": "qp9gJXMyLXkPnb43pmyn",
+    "type": "ejeepney",
+    "fare": 14,
+    "stops": [
+      "One Ayala",
+      "Ayala Ave",
+      "Glorietta",
+      "Greenbelt 1",
+      "Greenbelt 3",
+      "Greenbelt 5",
+      "Landmark",
+      "Makati Ave",
+      "Jupiter St",
+      "Circuit Makati"
+    ],
+    "name": "Makati Loop (Love Bus)",
+    "duration": "30 mins.",
+    "schedule": "Mon-Fri 6AM-10PM, Sat-Sun 8:30AM - 12MN",
+    "operator": "Makati City Government"
+  },
+  {
+    "id": "vyFBCiap1qO8Tb1gkj2i",
+    "duration": "50 mins.",
+    "name": "Quezon City - Makati",
+    "stops": [
+      "Quezon City Terminal",
+      "EDSA",
+      "Ayala Makati"
+    ],
+    "fare": 60,
+    "type": "P2P"
+  }
+]
