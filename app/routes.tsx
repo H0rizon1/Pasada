@@ -2,16 +2,22 @@ import { Ionicons } from "@expo/vector-icons";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { db } from "../constants/firebase";
 import { useLanguage } from "../constants/langcontext";
 import { useTheme } from "../constants/ThemeContext";
+
+type Stop = {
+  name: string;
+  lat: number | null;
+  lng: number | null;
+};
 
 type Route = {
   id: string;
@@ -19,7 +25,7 @@ type Route = {
   type: string;
   fare: number;
   duration: string;
-  stops: string[];
+  stops: Stop[];
   operator?: string;
   schedule?: string;
 };
@@ -241,7 +247,7 @@ export default function RoutesScreen() {
                           <Text
                             style={[styles.stopText, { color: colors.text }]}
                           >
-                            {stop}
+                            {stop.name}
                           </Text>
                         </View>
                       ))}
